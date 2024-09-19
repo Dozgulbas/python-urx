@@ -24,9 +24,7 @@ setup(
         "numpy",
         "math3d @ git+https://github.com/Dozgulbas/pymath3d.git@main#egg=math3d"
     ],
-    cmdclass={
-        'install': PostInstallCommand,
-    }  # Hooking into the post-install
+    cmdclass={'install': PostInstallCommand},  # Hooking into the post-install
     license="GNU Lesser General Public License v3",
     classifiers=[
         "Programming Language :: Python",
