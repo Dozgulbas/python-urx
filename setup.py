@@ -11,11 +11,9 @@ setup(
     provides=["urx"],
     install_requires=[
         "numpy",
-        "math3d"  # the link will be resolved by dependency_links
+        "math3d @ git+https://github.com/Dozgulbas/pymath3d.git@main#egg=math3d"
     ],
-    dependency_links=[
-        "git+https://github.com/Dozgulbas/pymath3d.git#egg=math3d"
-    ],
+
     license="GNU Lesser General Public License v3",
     classifiers=[
         "Programming Language :: Python",
