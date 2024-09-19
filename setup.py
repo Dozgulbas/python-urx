@@ -1,10 +1,15 @@
 from setuptools import setup
+from setuptools.command.install import install
+import subprocess
 
-def post_install():
-    # Uninstall any existing math3d package
-    subprocess.call(['pip', 'uninstall', '-y', 'math3d'])
-    # Install customized fork from GitHub
-    subprocess.call(['pip', 'install', 'git+https://github.com/Dozgulbas/pymath3d.git#egg=math3d'])
+class PostInstallCommand(install):
+    """Post-installation for installation mode."""
+    def run(self):
+        # Uninstall any existing math3d package
+        subprocess.call(['pip', 'uninstall', '-y', 'math3d'])
+        # Install your fork from GitHub
+        subprocess.call(['pip', 'install', 'git+https://github.com/Dozgulbas/pymath3d.git#egg=math3d'])
+        install.run(self)
 
 setup(
     name="urx",
@@ -19,7 +24,9 @@ setup(
         "numpy",
         "math3d @ git+https://github.com/Dozgulbas/pymath3d.git@main#egg=math3d"
     ],
-    cmdclass={'install': post_install},  # Hooking into the post-install
+    cmdclass={
+        'install': PostInstallCommand,
+    }  # Hooking into the post-install
     license="GNU Lesser General Public License v3",
     classifiers=[
         "Programming Language :: Python",
