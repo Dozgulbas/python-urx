@@ -3,7 +3,7 @@ from setuptools import setup
 def post_install():
     # Uninstall any existing math3d package
     subprocess.call(['pip', 'uninstall', '-y', 'math3d'])
-    # Install your fork from GitHub
+    # Install customized fork from GitHub
     subprocess.call(['pip', 'install', 'git+https://github.com/Dozgulbas/pymath3d.git#egg=math3d'])
 
 setup(
