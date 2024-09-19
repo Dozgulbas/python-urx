@@ -15,11 +15,11 @@ setup(
     url='https://github.com/Dozgulbas/python-urx',
     packages=["urx"],
     provides=["urx"],
-    cmdclass={'install': post_install},  # Hooking into the post-install
     install_requires=[
         "numpy",
         "math3d @ git+https://github.com/Dozgulbas/pymath3d.git@main#egg=math3d"
     ],
+    cmdclass={'install': post_install},  # Hooking into the post-install
     license="GNU Lesser General Public License v3",
     classifiers=[
         "Programming Language :: Python",
